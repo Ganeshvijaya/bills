@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<head >
+<title>
+	 Bill 
+</title>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<style type="text/css">
+.center {
+    margin-top:50px;   
+}
+
+.modal-header {
+	padding-bottom: 5px;
+}
+
+.modal-footer {
+    	padding: 0;
+	}
+    
+.modal-footer .btn-group button {
+	height:40px;
+	border-top-left-radius : 0;
+	border-top-right-radius : 0;
+	border: none;
+	border-right: 1px solid #ddd;
+}
+	
+.modal-footer .btn-group:last-child > button {
+	border-right: 0;
+}
+</style>
+
+
+
+<body>
+
+
+<div class="center"><button data-toggle="modal" data-target="#squarespaceModal" class="btn btn-primary center-block">Create  Bill</button></div>
+
+
+<!-- line modal -->
+<div class="modal fade" id="squarespaceModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+	<div class="modal-content">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+			<h3 class="modal-title" id="lineModalLabel">My Bill</h3>
+		</div>
+		<div class="modal-body">
+			
+            <!-- content goes here -->
+			<form action="CreateBill" method="post">
+              <div>
+               
+               User id: <input type="text" class="form-control" name="user" >
+              </div>
+              <div >
+                Group name:<select  name="groupname" id="group_name"class="form-control">
+  <option value></option>
+  <option value="option 1"> option 1</option>
+  <option value="option 1"> option 2</option>
+  <option value="option 1"> option 3</option>
+  <option value="option 1"> option 4</option>
+</select>
+              </div>
+              <div>
+               
+               Bill subject: <input type="text" class="form-control" name="bill" >
+              </div>
+              <div>
+               
+               Date:  <input type="date" name="date"  class="form-control"max="2020-12-31" min="2015-2-1">
+              </div>
+             <div>
+               
+               No.of Items/name: <input type="text" class="form-control" id="item_name" >
+              </div>
+              <div>
+               
+               Total: <input type="text" class="form-control" id="total" placeholder="tex+discount amount" >
+              </div>
+              <div>
+               
+               Comment <input type="textarea" class="form-control" id="comment" >
+              </div>
+
+
+              <div >
+                <label for="exampleInputFile">Bill </label>
+                <input type="file" id="exampleInputFile">
+                <p class="help-block">Upload your Bill</p>
+              </div>
+              
+              <button type="submit" class="btn btn-success">Submit</button>
+            </form>
+
+		</div>
+		<div class="modal-footer">
+			<div class="btn-group btn-group-justified" role="group" aria-label="group button">
+				<div class="btn-group" role="group">
+					<button type="button" class="btn btn-default" data-dismiss="modal"  role="button">Close</button>
+				</div>
+				<div class="btn-group btn-delete hidden" role="group">
+					<button type="button" id="delImage" class="btn btn-default btn-hover-red" data-dismiss="modal"  role="button">Delete</button>
+				</div>
+				<div class="btn-group" role="group">
+					<button type="button" id="saveImage" class="btn btn-default btn-hover-green" data-action="save" role="button">Save</button>
+				</div>
+			</div>
+		</div>
+	</div>
+  </div>
+</div>
